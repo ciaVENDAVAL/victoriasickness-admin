@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Cia. Victoria Sickness · admin</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    @font-face { font-family:"Instrument Serif"; src:url("fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); font-style:italic; font-weight:400; font-display:swap; }
+    @font-face { font-family:"Instrument Sans"; src:url("fonts/instrument-sans-latin-standard-normal.woff2") format("woff2"); font-weight:400 700; font-display:swap; }
+    @font-face { font-family:"Bricolage Grotesque"; src:url("fonts/bricolage-grotesque-latin-standard-normal.woff2") format("woff2"); font-weight:200 800; font-stretch:75% 100%; font-display:swap; }
+    :root { --ink:#120d11; --card:#1d151b; --bone:#f4eee6; --text:rgb(244 238 230/.85); --muted:rgb(244 238 230/.6); --line:rgb(244 238 230/.16); --lacquer:#e8004f; --bubble:#ff8fc7; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--ink); color:var(--text); font:400 1.05rem/1.55 "Instrument Sans",system-ui,sans-serif; padding:clamp(1.25rem,5vw,4rem); }
+    main { max-width:56rem; margin:0 auto; }
+    .label { font-size:.78rem; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--bubble); margin:0 0 .6rem; }
+    h1 { margin:0 0 2.5rem; color:var(--bone); line-height:.9; }
+    h1 em { display:block; font:italic 400 clamp(3rem,11vw,5.5rem)/.9 "Instrument Serif",serif; letter-spacing:-.02em; }
+    h1 span { font:800 clamp(1.8rem,6vw,3rem)/1 "Bricolage Grotesque",sans-serif; font-stretch:75%; text-transform:uppercase; letter-spacing:-.03em; color:var(--lacquer); }
+    h2 { color:var(--bone); font:italic 400 1.7rem/1.1 "Instrument Serif",serif; margin:0 0 .4rem; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1rem; margin-bottom:3rem; }
+    .card { display:block; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:1.5rem; text-decoration:none; color:var(--text); transition:border-color .2s, transform .2s; }
+    .card:hover, .card:focus-visible { border-color:var(--bubble); transform:translateY(-2px) rotate(-.5deg); }
+    .card--main { border-color:var(--lacquer); box-shadow:6px 6px 0 var(--lacquer); }
+    .card h2::after { content:" →"; color:var(--lacquer); font-style:normal; }
+    .card ul { margin:.8rem 0 0; padding-left:1.1rem; color:var(--muted); font-size:.95rem; }
+    a { color:var(--bubble); }
+    code { background:var(--card); padding:.1em .35em; border-radius:6px; font-size:.92em; }
+    details { border-top:1px solid var(--line); padding:1rem 0; }
+    details:last-of-type { border-bottom:1px solid var(--line); }
+    summary { cursor:pointer; color:var(--bone); font-weight:600; }
+    summary::marker { color:var(--lacquer); }
+    li { margin:.35rem 0; }
+    .foot { margin-top:2.5rem; font-size:.85rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <p class="label">✦ admin</p>
+  <h1><em>Victoria</em> <span>Sickness</span></h1>
+
+  <div class="cards">
+    <a class="card card--main" href="https://ciavendaval.github.io/victoriasickness-web/es/#edit">
+      <h2>Editar en la página</h2>
+      <p>La web de verdad, editable</p>
+      <ul>
+        <li>Toca un texto y escribe</li>
+        <li>Toca una foto o el botón de un PDF para cambiarlo (o «Fotos» en la barra)</li>
+        <li>Cambia de idioma con el menú ✦, luego <b>Publicar</b> una vez</li>
+      </ul>
+    </a>
+    <a class="card" href="web/">
+      <h2>Formularios</h2>
+      <p>Todo, campo por campo</p>
+      <ul>
+        <li>Textos en 8 idiomas, uno al lado del otro</li>
+        <li>Espectáculos: título, vídeo, ficha artística, apoyos, galería</li>
+        <li>Fotos de «Sobre mí», créditos de fotos</li>
+        <li>Colores y letra</li>
+      </ul>
+    </a>
+    <a class="card" href="web/#/collections/_singletons/entries/downloads">
+      <h2>PDFs</h2>
+      <p>Dossiers por idioma</p>
+      <ul>
+        <li>Los emails enlazan a <b>…/dossier/invocaciones/es/</b> (o /ca/, /en/…). Siempre da el PDF elegido aquí.</li>
+        <li>Versión nueva: súbela y elígela. Nombre: <code>VictoriaSickness-Invocaciones_ES_dossier_2027-01.pdf</code></li>
+      </ul>
+    </a>
+  </div>
+
+  <details>
+    <summary>Primera vez: cómo entrar</summary>
+    <p>Se entra con un <b>token de GitHub</b> (una contraseña larga hecha para esto). Se pega una vez por navegador y se queda guardado hasta que cierres sesión.</p>
+    <ol>
+      <li>Entra en GitHub con una cuenta que sea miembro de <b>ciaVENDAVAL</b>.</li>
+      <li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">New fine-grained token</a>.</li>
+      <li><b>Token name:</b> <code>Victoria Sickness admin</code>. <b>Expiration:</b> hasta un año.</li>
+      <li><b>Resource owner:</b> <code>ciaVENDAVAL</code>.</li>
+      <li><b>Repository access:</b> <i>Only select repositories</i> → <code>victoriasickness-web</code>.</li>
+      <li><b>Permissions → Repository permissions → Contents:</b> <i>Read and write</i>.</li>
+      <li><b>Generate token</b>, cópialo, abre <i>Formularios</i>, elige <b>Sign In Using Access Token</b> y pégalo. <i>Editar en la página</i> usa el mismo token (o lo pide una vez).</li>
+    </ol>
+    <p>Si ciaVENDAVAL no permite tokens fine-grained, usa un <a href="https://github.com/settings/tokens/new?scopes=public_repo&amp;description=Victoria%20Sickness%20admin" target="_blank" rel="noopener">token clásico</a> marcando solo <code>public_repo</code>.</p>
+    <p>Guarda el token como una contraseña. Si se filtra, bórralo en GitHub (Settings → Developer settings) y haz uno nuevo.</p>
+  </details>
+
+  <details>
+    <summary>Cómo funciona</summary>
+    <ul>
+      <li>Cada <b>Guardar</b> (o <b>Publicar</b> en la página) va directo a la web. Se ve en unos <b>3–5 minutos</b> (la web se reconstruye sola; recarga la página).</li>
+      <li>Todo cambio queda en el historial de GitHub: todo se puede deshacer.</li>
+      <li><b>Cambia un idioma, los demás le siguen:</b> un texto cambiado solo en un idioma se traduce a los otros 7 unos minutos después, con el traductor libre de Softcatalà (sin Google, sin Amazon). <b>Revisa siempre el resultado</b>, sobre todo los pronombres neutros de Vic (they / elle / elli). Para corregir solo un idioma, desmarca <i>Traducir</i> en la barra de edición, o cambia todos los idiomas en el mismo guardado.</li>
+      <li><b>Fotos:</b> súbelas tal cual (nombres simples sin espacios ni acentos, p. ej. <code>invocaciones-ensayo-3.jpg</code>). El original se guarda intacto en <code>source-images/</code>; la web hace sola las copias grandes y pequeñas. <b>Nunca se recortan.</b></li>
+      <li><b>Cambiar una foto</b> sin tocar textos: en la página, tócala y elige otra; o en Formularios → <i>Assets</i> → la foto → ⋮ → <i>Replace</i>.</li>
+      <li>Pon el nombre de quien hizo cada foto en <i>Créditos de las fotos</i>.</li>
+      <li>En el móvil también funciona: el menú de los formularios está detrás de ☰.</li>
+      <li>Los PDFs de dossier se hacen con Claude (desde sus fuentes); aquí solo se sube y se elige cuál da cada enlace.</li>
+    </ul>
+  </details>
+
+  <p class="foot">Hecho con <a href="https://sveltiacms.app" target="_blank" rel="noopener">Sveltia CMS</a> · modelo La Senyal · repo ciaVENDAVAL/victoriasickness-admin</p>
+</main>
+</body>
+</html>
