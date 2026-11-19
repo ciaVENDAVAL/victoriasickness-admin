@@ -83,7 +83,7 @@ cfg = {
  ],
  "singletons": [
    {"name": "downloads", "label": "PDFs: cuál da cada enlace", "icon": "picture_as_pdf", "file": "content/downloads.json",
-    "fields": [{"name": k, "label": f"Dossier · {k}", "widget": "object", "collapsed": k != download_keys[0],
+    "fields": [{"name": k, "label": f"{({'rider': 'Ficha técnica', 'flyer': 'Flyer'}).get(J('content/site.json')['downloads'].get(k, {}).get('kind'), 'Dossier')} · {k}", "widget": "object", "collapsed": k != download_keys[0],
                 "hint": f"Enlace corto para emails: …/dossier/{k}/<idioma>/ — da siempre el PDF elegido aquí. Si un idioma está vacío, se da el castellano. Nombre: VictoriaSickness-Invocaciones_ES_dossier_2027-01.pdf",
                 "fields": [{"name": l, "label": l.upper(), "widget": "file", "media_folder": "/static/pdf", "public_folder": "/pdf", "required": l == "es"} for l in LOCALES]}
                for k in download_keys]},
@@ -127,7 +127,11 @@ cfg = {
           {"name": "role", "label": "Rol", "widget": "select", "options": roles, "dropdown_threshold": 12, "hint": "Los nombres de los roles están en Textos → Ficha artística."},
           {"name": "name", "label": "Nombre", "widget": "string"},
           {"name": "url", "label": "Enlace (opcional)", "widget": "string", "required": False}]},
-        {"name": "support", "label": "Con el apoyo de", "widget": "list", "hint": "Un nombre por línea."},
+        {"name": "residencies", "label": "Residencias", "widget": "list", "required": False, "hint": "Un espacio por línea (p. ej. «Nau Ivanow (Barcelona)»)."},
+        {"name": "coproductions", "label": "Coproducción", "widget": "list", "required": False, "collapsed": True, "summary": "{{fields.name}}", "label_singular": "coproductor", "fields": [
+          {"name": "name", "label": "Nombre (p. ej. Plataforma InSitu)", "widget": "string"},
+          {"name": "partners", "label": "Socios (opcional)", "widget": "string", "required": False, "hint": "Separados por « · »."}]},
+        {"name": "support", "label": "Con el apoyo de", "widget": "list", "required": False, "hint": "Un nombre por línea. Si hay residencias o coproducción, usa esas listas."},
         {"name": "images", "label": "Galería", "widget": "list", "collapsed": True, "thumbnail": "file", "summary": "{{fields.file}}",
          "label_singular": "foto", "hint": "En orden: forman el mosaico. Las fotos nunca se recortan.", "fields": [img("file", "Foto"), shape]}]}]}]},
  ],

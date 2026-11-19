@@ -167,6 +167,114 @@ singletons:
       media_folder: /static/pdf
       public_folder: /pdf
       required: false
+  - name: invocaciones-rider
+    label: Ficha técnica · invocaciones-rider
+    widget: object
+    collapsed: true
+    hint: 'Enlace corto para emails: …/dossier/invocaciones-rider/<idioma>/ — da siempre el PDF elegido aquí. Si un idioma está vacío, se da el castellano. Nombre: VictoriaSickness-Invocaciones_ES_dossier_2027-01.pdf'
+    fields:
+    - name: es
+      label: ES
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: true
+    - name: ca
+      label: CA
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: eu
+      label: EU
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: en
+      label: EN
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: fr
+      label: FR
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: it
+      label: IT
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: pt
+      label: PT
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: de
+      label: DE
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+  - name: invocacions-obertura
+    label: Flyer · invocacions-obertura
+    widget: object
+    collapsed: true
+    hint: 'Enlace corto para emails: …/dossier/invocacions-obertura/<idioma>/ — da siempre el PDF elegido aquí. Si un idioma está vacío, se da el castellano. Nombre: VictoriaSickness-Invocaciones_ES_dossier_2027-01.pdf'
+    fields:
+    - name: es
+      label: ES
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: true
+    - name: ca
+      label: CA
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: eu
+      label: EU
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: en
+      label: EN
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: fr
+      label: FR
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: it
+      label: IT
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: pt
+      label: PT
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
+    - name: de
+      label: DE
+      widget: file
+      media_folder: /static/pdf
+      public_folder: /pdf
+      required: false
 - name: theme
   label: 'Aspecto: colores y letra'
   icon: palette
@@ -492,6 +600,14 @@ collections:
         label: Photo
         widget: string
         i18n: true
+      - name: residencies
+        label: Residencies
+        widget: string
+        i18n: true
+      - name: coproductions
+        label: Coproductions
+        widget: string
+        i18n: true
       i18n: true
     - name: roles
       label: Ficha artística · nombres de los roles
@@ -529,6 +645,30 @@ collections:
         i18n: true
       - name: costume
         label: Costume
+        widget: string
+        i18n: true
+      - name: idea_direction_performance
+        label: Idea direction performance
+        widget: string
+        i18n: true
+      - name: dramaturgy_support
+        label: Dramaturgy support
+        widget: string
+        i18n: true
+      - name: choreography_support
+        label: Choreography support
+        widget: string
+        i18n: true
+      - name: music_sound
+        label: Music sound
+        widget: string
+        i18n: true
+      - name: set_design
+        label: Set design
+        widget: string
+        i18n: true
+      - name: insitu_tutoring
+        label: Insitu tutoring
         widget: string
         i18n: true
       i18n: true
@@ -664,6 +804,8 @@ collections:
         options:
         - invocaciones
         - invocaciones-compacto
+        - invocaciones-rider
+        - invocacions-obertura
         hint: Qué PDF da el botón «Dossier» de este espectáculo.
       - name: credits
         label: Ficha artística
@@ -692,6 +834,18 @@ collections:
             value: video_art
           - label: Vestuario
             value: costume
+          - label: Idea, dirección e interpretación
+            value: idea_direction_performance
+          - label: Acompañamiento dramatúrgico
+            value: dramaturgy_support
+          - label: Acompañamiento coreográfico
+            value: choreography_support
+          - label: Banda sonora y sonorización
+            value: music_sound
+          - label: Escenografía
+            value: set_design
+          - label: Tutorías del programa InSitu
+            value: insitu_tutoring
           dropdown_threshold: 12
           hint: Los nombres de los roles están en Textos → Ficha artística.
         - name: name
@@ -701,10 +855,32 @@ collections:
           label: Enlace (opcional)
           widget: string
           required: false
+      - name: residencies
+        label: Residencias
+        widget: list
+        required: false
+        hint: Un espacio por línea (p. ej. «Nau Ivanow (Barcelona)»).
+      - name: coproductions
+        label: Coproducción
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.name}}'
+        label_singular: coproductor
+        fields:
+        - name: name
+          label: Nombre (p. ej. Plataforma InSitu)
+          widget: string
+        - name: partners
+          label: Socios (opcional)
+          widget: string
+          required: false
+          hint: Separados por « · ».
       - name: support
         label: Con el apoyo de
         widget: list
-        hint: Un nombre por línea.
+        required: false
+        hint: Un nombre por línea. Si hay residencias o coproducción, usa esas listas.
       - name: images
         label: Galería
         widget: list
